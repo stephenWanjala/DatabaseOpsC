@@ -1,0 +1,17 @@
+version: '3'
+services:
+  oracle-db:
+    image: oraclelinux:7-slim
+    container_name: oracle-container
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    environment:
+      - ORACLE_SID=ORCLCDB1
+      - ORACLE_PDB=ORCLPDB1
+      # - ORACLE_PWD=password
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+
+volumes:
+  oracle-data:
